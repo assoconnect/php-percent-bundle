@@ -1,30 +1,34 @@
 {
-    "name": "assoconnect/your-repo",
+    "name": "assoconnect/php-percent-bundle",
     "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/assoconnect/your-repo/"
+            "url": "https://github.com/assoconnect/php-percent-bundle/"
         }
     ],
     "type": "library",
     "description": "",
     "keywords": ["php"],
-    "homepage": "https://github.com/assoconnect/your-repo/",
+    "homepage": "https://github.com/assoconnect/php-percent-bundle/",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "AssoConnect\\YourRepo\\": "src/"
+            "AssoConnect\\PHPPercentBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AssoConnect\\YourRepo\\Tests\\": "tests/"
+            "AssoConnect\\PHPPercentBundle\\Tests\\": "tests/"
         }
     },
     "require-dev": {
         "phpunit/phpunit": "^9.2"
     },
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "symfony/framework-bundle": "^4.2|^5.0",
+        "assoconnect/php-percent": "^1.0",
+        "doctrine/dbal": "^2.10",
+        "symfony/serializer": "^5.0"
     }
 }
