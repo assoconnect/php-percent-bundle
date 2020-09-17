@@ -8,5 +8,5 @@ The PHPPercentBundle add the support of PHP Percent object (see [AssoConnect\PHP
 ## Installation
 
 ```
-composer require assoconnect/php-date-bundle
+composer require assoconnect/php-percent-bundle
 ```
