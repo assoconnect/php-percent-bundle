@@ -44,7 +44,7 @@ class PercentType extends IntegerType
         }
 
         try {
-            return new Percent((int)$value);
+            return new Percent(is_string($value)?(int)$value:$value);
         } catch (\Throwable $exception) {
             throw ConversionException::conversionFailedInvalidType(
                 $value,

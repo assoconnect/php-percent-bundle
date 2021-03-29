@@ -61,8 +61,7 @@ class PercentTypeTest extends TestCase
     public function testInvalidTypeConversionToPHPValue(): void
     {
         $this->expectException(ConversionException::class);
-
-        $this->type->convertToPHPValue('not an integer', $this->platform);
+        $this->type->convertToPHPValue(["an array"], $this->platform);
     }
 
     public function testConvertIntegerToPHPValue(): void
@@ -71,6 +70,15 @@ class PercentTypeTest extends TestCase
         $percent = new Percent($int);
 
         self::assertTrue($this->type->convertToPHPValue($int, $this->platform)->equals($percent));
+    }
+
+    public function testConvertStringToPHPValue(): void
+    {
+        $int = rand();
+        $string = strval($int);
+        $percent = new Percent($int);
+
+        self::assertTrue($this->type->convertToPHPValue($string, $this->platform)->equals($percent));
     }
 
     /**
