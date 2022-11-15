@@ -32,8 +32,6 @@ class PercentTypeTest extends TestCase
     {
         $this->platform = $this->getMockForAbstractClass(AbstractPlatform::class);
         $this->type = new PercentType();
-
-        self::assertInstanceOf(Type::class, $this->type);
     }
 
     /**
