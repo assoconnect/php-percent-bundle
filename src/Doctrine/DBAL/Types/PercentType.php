@@ -21,7 +21,7 @@ class PercentType extends IntegerType
     /**
      * {@inheritdoc}
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?int
     {
         if ($value === null) {
             return $value;
@@ -37,7 +37,7 @@ class PercentType extends IntegerType
     /**
      * {@inheritdoc}
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?Percent
     {
         if ($value === null || $value instanceof Percent) {
             return $value;
@@ -58,7 +58,7 @@ class PercentType extends IntegerType
     /**
      * @inheritdoc
      */
-    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;
     }
