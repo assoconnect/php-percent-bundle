@@ -13,7 +13,7 @@ class PercentType extends IntegerType
 {
     public const TYPE = 'percent';
 
-    public function getName()
+    public function getName(): string
     {
         return self::TYPE;
     }
