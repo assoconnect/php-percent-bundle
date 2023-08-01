@@ -22,7 +22,7 @@ class PHPPercentExtension extends Extension
                 'mapping_types' => [
                     'percent' => 'integer',
                 ],
-            ]
+            ],
             ]
         );
     }
