@@ -7,9 +7,9 @@ namespace AssoConnect\PHPPercentBundle\Doctrine\DBAL\Types;
 use AssoConnect\PHPPercent\Percent;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
-use Doctrine\DBAL\Types\IntegerType;
+use Doctrine\DBAL\Types\Type;
 
-class PercentType extends IntegerType
+class PercentType extends Type
 {
     public const TYPE = 'percent';
 
@@ -18,9 +18,11 @@ class PercentType extends IntegerType
         return self::TYPE;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
+    {
+        return $platform->getIntegerTypeDeclarationSQL($column);
+    }
+
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?int
     {
         if ($value === null) {
@@ -34,9 +36,6 @@ class PercentType extends IntegerType
         throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', Percent::class]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Percent
     {
         if ($value === null || $value instanceof Percent) {
