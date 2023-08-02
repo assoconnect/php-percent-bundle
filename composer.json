@@ -29,7 +29,8 @@
         "symfony/framework-bundle": "^4.2|^5.0",
         "assoconnect/php-percent": "^1.1",
         "doctrine/dbal": "^2.10|^3.0",
-        "symfony/serializer": "^5.0"
+        "symfony/serializer": "^5.0",
+        "assoconnect/validator-bundle": "^2.19"
     },
     "config": {
         "allow-plugins": {
