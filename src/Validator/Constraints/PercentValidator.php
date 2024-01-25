@@ -30,7 +30,7 @@ class PercentValidator extends ComposeValidator
     /**
      * @inheritDoc
      */
-    protected function sanitizeValue($value)
+    protected function sanitizeValue($value): mixed
     {
         if ($value instanceof \AssoConnect\PHPPercent\Percent) {
             return $value->toInteger();
