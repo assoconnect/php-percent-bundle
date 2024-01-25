@@ -18,10 +18,7 @@ class PercentValidatorTest extends ConstraintValidatorTestCase
 {
     protected function getConstraint(): Constraint
     {
-        return new Percent([
-            'min' => 10,
-            'max' => 50,
-        ]);
+        return new Percent();
     }
 
     public function createValidator(): ConstraintValidatorInterface

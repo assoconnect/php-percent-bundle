@@ -19,6 +19,8 @@ class Percent extends Constraint
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->min = 0;
         $this->max = 10000;
     }
