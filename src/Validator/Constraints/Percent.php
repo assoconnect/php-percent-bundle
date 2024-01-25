@@ -17,11 +17,11 @@ class Percent extends Constraint
     public readonly int $min;
     public readonly int $max;
 
-    public function __construct()
+    public function __construct(int $min = 0, int $max = 10000)
     {
         parent::__construct();
 
-        $this->min = 0;
-        $this->max = 10000;
+        $this->min = $min;
+        $this->max = $max;
     }
 }
