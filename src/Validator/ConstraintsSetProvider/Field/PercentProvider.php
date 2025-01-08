@@ -7,6 +7,7 @@ namespace AssoConnect\PHPPercentBundle\Validator\ConstraintsSetProvider\Field;
 use AssoConnect\PHPPercent\Percent as PercentObject;
 use AssoConnect\PHPPercentBundle\Validator\Constraints\Percent as PercentConstraint;
 use AssoConnect\ValidatorBundle\Validator\ConstraintsSetProvider\Field\FieldConstraintsSetProviderInterface;
+use Doctrine\ORM\Mapping\FieldMapping;
 use Symfony\Component\Validator\Constraints\Type;
 
 class PercentProvider implements FieldConstraintsSetProviderInterface
@@ -16,7 +17,7 @@ class PercentProvider implements FieldConstraintsSetProviderInterface
         return 'percent' === $type;
     }
 
-    public function getConstraints(array $fieldMapping): array
+    public function getConstraints(FieldMapping $fieldMapping): array
     {
         return [
             new Type(PercentObject::class),
