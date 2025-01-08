@@ -30,7 +30,7 @@ class PercentValidator extends ComposeValidator
     /**
      * @inheritDoc
      */
-    protected function sanitizeValue($value): mixed
+    protected function sanitizeValue(mixed $value): mixed
     {
         if ($value instanceof \AssoConnect\PHPPercent\Percent) {
             return $value->toInteger();
@@ -38,7 +38,7 @@ class PercentValidator extends ComposeValidator
         return $value;
     }
 
-    protected function getValidatorsAndConstraints($value, Constraint $constraint): array
+    protected function getValidatorsAndConstraints(mixed $value, Constraint $constraint): array
     {
         if (!$constraint instanceof Percent) {
             throw new UnexpectedTypeException($constraint, Percent::class);

@@ -26,11 +26,11 @@
     },
     "require": {
         "php": "^7.4|^8.0",
-        "symfony/framework-bundle": "^5.0|^6.0|^7.0",
+        "symfony/framework-bundle": "^6.0|^7.0",
         "assoconnect/php-percent": "^1.1",
         "doctrine/dbal": "^2.10|^3.0",
-        "symfony/serializer": "^5.0|^6.0",
-        "assoconnect/validator-bundle": "^2.19"
+        "symfony/serializer": "^6.0",
+        "assoconnect/validator-bundle": "^2.32"
     },
     "config": {
         "allow-plugins": {
