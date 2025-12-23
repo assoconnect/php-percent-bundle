@@ -31,7 +31,7 @@
         "assoconnect/php-percent": "^1.1",
         "doctrine/dbal": "^2.10|^3.0",
         "symfony/serializer": "^6.0|^7.0",
-        "assoconnect/validator-bundle": "dev-sf-7"
+        "assoconnect/validator-bundle": "^2.32"
     },
     "config": {
         "allow-plugins": {
