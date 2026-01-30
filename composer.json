@@ -22,14 +22,14 @@
         }
     },
     "require-dev": {
-        "assoconnect/php-quality-config": "^1.16"
+        "assoconnect/php-quality-config": "^2"
     },
     "require": {
         "php": "^8.3",
-        "symfony/framework-bundle": "^6.0|^7.0",
+        "symfony/framework-bundle": "^7.0",
         "assoconnect/php-percent": "^1.1",
         "doctrine/dbal": "^2.10|^3.0",
-        "symfony/serializer": "^6.0|^7.0",
+        "symfony/serializer": "^7.0",
         "assoconnect/validator-bundle": "^2.32"
     },
     "config": {
