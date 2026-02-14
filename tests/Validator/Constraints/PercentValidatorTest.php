@@ -29,7 +29,7 @@ class PercentValidatorTest extends ConstraintValidatorTestCase
         return new PercentValidator();
     }
 
-    public function providerValidValues(): iterable
+    public static function providerValidValues(): iterable
     {
         yield [null];
         yield [10.0];
@@ -40,7 +40,7 @@ class PercentValidatorTest extends ConstraintValidatorTestCase
         yield [new \AssoConnect\PHPPercent\Percent(20)];
     }
 
-    public function providerInvalidValues(): iterable
+    public static function providerInvalidValues(): iterable
     {
         yield [
             'a',

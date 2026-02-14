@@ -18,7 +18,7 @@ class PercentProviderTest extends FieldConstraintsSetProviderTestCase
         return new PercentProvider();
     }
 
-    public function getConstraintsForTypeProvider(): iterable
+    public static function getConstraintsForTypeProvider(): iterable
     {
         yield [
             [

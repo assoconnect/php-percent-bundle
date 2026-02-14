@@ -80,7 +80,7 @@ class PercentTypeTest extends TestCase
     }
 
     /**
-     * @return mixed[][]
+     * @return list<array<mixed>>
      */
     public static function invalidPHPValuesProvider(): iterable
     {
