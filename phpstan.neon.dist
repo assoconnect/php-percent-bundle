@@ -8,5 +8,10 @@ parameters:
             - 'Symfony\Component\Validator\Exception\InvalidOptionsException'
             - 'Symfony\Component\Validator\Exception\MissingOptionsException'
 
+    # DBAL 3 fallback branch, dead code when DBAL 4 is installed (^3.6|^4.0 are both supported)
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - '#Call to an undefined static method Doctrine\\DBAL\\Types\\ConversionException::conversionFailed#'
+
 includes:
     - vendor/assoconnect/php-quality-config/phpstan.extension.neon

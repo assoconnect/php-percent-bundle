@@ -7,6 +7,7 @@ namespace AssoConnect\PHPPercentBundle\Doctrine\DBAL\Types;
 use AssoConnect\PHPPercent\Percent;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
+use Doctrine\DBAL\Types\Exception\InvalidType;
 use Doctrine\DBAL\Types\Type;
 
 class PercentType extends Type
@@ -33,7 +34,7 @@ class PercentType extends Type
             return $value->toInteger();
         }
 
-        throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', Percent::class]);
+        throw $this->createInvalidTypeException($value, ['null', Percent::class]);
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Percent
@@ -45,12 +46,7 @@ class PercentType extends Type
         try {
             return new Percent(is_string($value) ? (int)$value : $value);
         } catch (\Throwable $exception) {
-            throw ConversionException::conversionFailedInvalidType(
-                $value,
-                $this->getName(),
-                ['null', 'integer'],
-                $exception
-            );
+            throw $this->createInvalidTypeException($value, ['null', 'integer'], $exception);
         }
     }
 
@@ -60,5 +56,25 @@ class PercentType extends Type
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;
+    }
+
+    /**
+     * DBAL 4 replaced the ConversionException static factories with dedicated exception classes.
+     * The runtime conditional below can be inlined once DBAL 3 support is dropped.
+     * Excluded from coverage: only one branch can run for a given installed DBAL major.
+     *
+     * @codeCoverageIgnore
+     * @param string[] $possibleTypes
+     */
+    private function createInvalidTypeException(
+        mixed $value,
+        array $possibleTypes,
+        ?\Throwable $previous = null
+    ): ConversionException {
+        if (class_exists(InvalidType::class)) {
+            return InvalidType::new($value, self::TYPE, $possibleTypes, $previous);
+        }
+
+        return ConversionException::conversionFailedInvalidType($value, self::TYPE, $possibleTypes, $previous);
     }
 }
