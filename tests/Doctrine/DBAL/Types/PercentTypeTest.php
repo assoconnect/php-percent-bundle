@@ -9,16 +9,14 @@ use AssoConnect\PHPPercentBundle\Doctrine\DBAL\Types\PercentType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class PercentTypeTest extends TestCase
 {
-    /**
-     * @var AbstractPlatform|MockObject
-     */
-    protected $platform;
+    protected AbstractPlatform&Stub $platform;
 
     /**
      * @var Type
@@ -30,15 +28,14 @@ class PercentTypeTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->platform = $this->getMockForAbstractClass(AbstractPlatform::class);
+        $this->platform = self::createStub(AbstractPlatform::class);
         $this->type = new PercentType();
     }
 
     /**
      * @param mixed $value
-     *
-     * @dataProvider invalidPHPValuesProvider
      */
+    #[DataProvider('invalidPHPValuesProvider')]
     public function testInvalidTypeConversionToDatabaseValue($value): void
     {
         $this->expectException(ConversionException::class);
